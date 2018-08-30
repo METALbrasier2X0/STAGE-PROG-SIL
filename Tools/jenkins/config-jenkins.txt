@@ -1,0 +1,40 @@
+Quelques notes sur la configuration de Jenkins
+
+J'explique ici comment utiliser et configurer Gitlab et Jenkins au département, pour que Jenkins puisse construire des projets hébergés sur Gitlab.
+
+Serveur Gitlab :
+- https://gitlab.iut.u-bordeaux1.fr/
+- identifiant / mot de passe spécifique, envoyé aux étudiants par mail (et à la demande pour les enseignants)
+
+Serveur Jenkins :
+- https://intranet.iut.u-bordeaux1.fr/jenkins/
+- identifiant / mot de passe : compte habituel (Université de Bordeaux)
+
+Architecture :
+1. Sur la machine de dev :
+- dossier de sources (working copy)
+- dépôt Gitlab de travail (sur lequel on commit)
+2. Sur le serveur Gitlab :
+- dépôt Gitlab de référence (sur lequel on push)
+3. Sur le serveur Jenkins :
+- builds configurés pour récupérer des données sur le serveur Gitlab
+
+Je suppose que :
+- le projet Gitlab a déjà été créé
+- la machine de dev est déjà configurée (working copy, etc).
+
+Il faut ensuite, sous Gitlab, ajouter l'utilisateur "jenkins" comme membre du projet. Pour cela, aller dans le projet, puis Settings, Members, New project member. Il faut lui donner les droits suivants :
+- Guest si le projet est public
+- Reporter si le projet est privé
+
+Ensuite, pour créer un build sous Jenkins, cliquer sur "Nouveau item", choisir un nom, puis un type de projet : en général, "maven" si le projet est déjà sous maven, et "free-style" sinon. On arrive dans la page de configuration du projet/build/job :
+- Gestion de code source : choisir Git
+-- Repository URL : mettre l'URL du dépôt (exemple : https://gitlab.iut.u-bordeaux1.fr/ogauwin/m4201c-qualite-logicielle)
+-- Credentials : ajouter "jenkins"
+- Ce qui déclenche le build :
+-- Scrutation de l'outil de gestion de version, mettre comme Planning "H/5 * * * *", ainsi Jenksin vérifie toutes les 5 minutes s'il y a une nouvelle version sur Gitlab.
+- Build : choisir un type de build et le configurer (TODO : exemples avec Ant, maven?, etc)
+- Actions à la suite du build :
+-- si des tests JUnit ont été configurés dans les builds,  choisir "Publier le rapport des résultats des tests JUnit", mettre "**/*.xml" dans XML des rapports de test
+
+On peut ensuite tester le build en retournant sur la page d'accueil de Jenkins et en cliquant sur l'icône "Lancer", par exemple.
