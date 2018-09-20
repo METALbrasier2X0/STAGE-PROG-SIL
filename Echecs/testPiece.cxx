@@ -1,4 +1,4 @@
-/** 
+/**
  * Programme test de Piece
  *
  * @file testPiece.cxx
@@ -22,12 +22,11 @@ int main( int argc, char** argv )
   Piece p1;
   // p1 est une piece blanche de coordonnees (3,3)
   p1.init( 3, 3, true );
-  
+
   // On l'affiche
   cout << "Piece: x=" << p1.x() << " y=" << p1.y() << " "
        << ( p1.isWhite() ? "blanche" : "noire" ) << endl;
-  
 
-  // les objets definis dans cette fonction sont automatiquement détruits.
+  // les objets definis dans cette fonction sont automatiquement dï¿½truits.
   // Ex : p1
 }

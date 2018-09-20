@@ -1,4 +1,4 @@
-/** 
+/**
  * Header de Piece.cxx
  *
  * @file Piece.h
@@ -8,15 +8,15 @@
 #define Piece_h
 
 /**
- * Declaration d'une classe modélisant une piece de jeu d'echec.
+ * Declaration d'une classe modï¿½lisant une piece de jeu d'echec.
  */
-class Piece 
+class Piece
 {
 private:
   int m_x;
   int m_y;
   bool m_white;
-  
+
 public:
   Piece();
   void init( int x, int y, bool white );
@@ -24,6 +24,6 @@ public:
   int x();
   int y();
   bool isWhite();
-}; 
+};
 
 #endif // !defined Piece_h

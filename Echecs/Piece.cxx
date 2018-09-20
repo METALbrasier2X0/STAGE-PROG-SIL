@@ -1,4 +1,4 @@
-/** 
+/**
  * Mise en oeuvre de Piece.h
  *
  * @file Piece.cxx
