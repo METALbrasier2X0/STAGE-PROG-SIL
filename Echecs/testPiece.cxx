@@ -33,9 +33,13 @@ int main( int argc, char** argv )
   if (p2.isBlack())
     cout << "Une Piece noire" << endl;
 
+  Piece p3( p2 ); // constructeur par copie : Piece p3 = p2;
+  p3 = p2 = p1; // affectations : p3.operator=(p2.operator=(p1));
+
   // On l'affiche
   p1.affiche();
   p2.affiche();
+  p3.affiche();
 
 /*
   Joueur jb(true);

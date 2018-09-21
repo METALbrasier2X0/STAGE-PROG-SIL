@@ -21,13 +21,30 @@ Piece::~Piece()
   cout << "Une Piece detruite" << endl;
 }
 
+Piece::Piece( const Piece & autre)
+{
+  m_x = autre.m_x;
+  m_y = autre.m_y;
+  m_white = autre.m_white;
+  cout << "Une Piece copiee" << endl;
+}
+
 Piece::Piece( int x, int y, bool white )
 {
   m_x = x;
   m_y = y;
   m_white = white;
-
   cout << "Une Piece creee" << endl;
+}
+
+Piece &
+Piece::operator=( const Piece & autre)
+{
+  m_x = autre.m_x;
+  m_y = autre.m_y;
+  m_white = autre.m_white;
+  cout << "Une Piece affectee" << endl;
+  return *this;
 }
 
 void
@@ -46,31 +63,31 @@ Piece::move( int x, int y )
 }
 
 int
-Piece::x()
+Piece::x() const
 {
   return m_x;
 }
 
 int
-Piece::y()
+Piece::y() const
 {
   return m_y;
 }
 
 bool
-Piece::isWhite()
+Piece::isWhite() const
 {
   return m_white;
 }
 
 bool
-Piece::isBlack()
+Piece::isBlack() const
 {
   return !m_white;
 }
 
 void
-Piece::affiche()
+Piece::affiche() const
 {
   cout << "Piece: x=" << m_x << " y=" << m_y << " "
        << ( m_white ? "blanche" : "noire" ) << endl;
