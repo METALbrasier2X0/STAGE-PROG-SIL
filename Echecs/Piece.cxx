@@ -7,6 +7,7 @@
 #include <iostream>
 // A besoin de la declaration de la classe
 #include "Piece.h"
+#include "Echiquier.h"
 
 using namespace std;
 
@@ -60,6 +61,12 @@ Piece::move( int x, int y )
 {
   m_x = x;
   m_y = y;
+}
+
+bool Piece::mouvementValide(Echiquier &e, int x, int y)
+{
+  cout << "mouvementValide de Piece" << endl;
+  return true;
 }
 
 int

@@ -47,8 +47,13 @@ int main( int argc, char** argv )
   else
     cout << "pieces differentes" << endl;
 
+/*
   Joueur jb(true);
   Joueur jn(false);
+*/
+
+  JoueurBlanc jb;
+  JoueurNoir jn;
 
   jb.affiche();
   jn.affiche();

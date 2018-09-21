@@ -25,6 +25,24 @@ Joueur::Joueur(bool white)
     cout << "Une Joueur construit" << endl;
 }
 
+JoueurBlanc::JoueurBlanc() : Joueur(true)
+{
+    cout << "Une JoueurBlanc construit" << endl;
+}
+
+JoueurNoir::JoueurNoir()
+{
+    int p=0;
+    for (int x=1; x<=8; ++x)
+        m_pieces[p++].init( x, 8, false );
+    for (int x=1; x<=8; ++x)
+    {
+       m_pieces[p].init( x, 7, false );
+       p++;
+    }
+    cout << "Une JoueurNoir construit" << endl;
+}
+
 void
 Joueur::placerPieces(Echiquier & e)
 {
