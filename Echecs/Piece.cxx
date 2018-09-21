@@ -4,12 +4,30 @@
  * @file Piece.cxx
  */
 
+#include <iostream>
 // A besoin de la declaration de la classe
 #include "Piece.h"
+
+using namespace std;
 
 Piece::Piece()
 {
   // ne fait rien => objet instancie mais non valide.
+  cout << "Une Piece creee par defaut" << endl;
+}
+
+Piece::~Piece()
+{
+  cout << "Une Piece detruite" << endl;
+}
+
+Piece::Piece( int x, int y, bool white )
+{
+  m_x = x;
+  m_y = y;
+  m_white = white;
+
+  cout << "Une Piece creee" << endl;
 }
 
 void
@@ -43,5 +61,18 @@ bool
 Piece::isWhite()
 {
   return m_white;
+}
+
+bool
+Piece::isBlack()
+{
+  return !m_white;
+}
+
+void
+Piece::affiche()
+{
+  cout << "Piece: x=" << m_x << " y=" << m_y << " "
+       << ( m_white ? "blanche" : "noire" ) << endl;
 }
 

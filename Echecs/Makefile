@@ -1,4 +1,4 @@
-SRC_CXX=Piece.cxx
+SRC_CXX=Piece.cxx Joueur.cxx
 
 OBJ=${SRC_CXX:.cxx=.o}
 
@@ -8,7 +8,7 @@ testPiece: $(OBJ) testPiece.o
 	g++ $(OBJ) testPiece.o -o testPiece
 
 %.o: %.cxx
-	g++ -c $<
+	g++ -g -c $<
 
 clean:
 	@rm -f $(OBJ) testPiece.o testPiece *~
