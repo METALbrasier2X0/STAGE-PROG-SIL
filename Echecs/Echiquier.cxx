@@ -5,17 +5,20 @@
  */
 
 #include <iostream>
+#include <assert.h>
 // A besoin de la declaration de la classe
 #include "Echiquier.h"
 
 using namespace std;
 
 /**
- * Constructeur par d�faut.
- * Initialise � vide l'echiquier.
+ * Constructeur par defaut.
+ * Initialise a vide l'echiquier.
  */
 Echiquier::Echiquier()
 {
+	for (int i=0; i<64; i++)
+		m_cases[i]=nullptr;
 }
 
 /**
@@ -24,12 +27,14 @@ Echiquier::Echiquier()
  * @param x un entier entre 1 et 8
  * @param y un entier entre 1 et 8
  *
- * @return 0 si aucune piece n'est sur cette case et un pointeur
+ * @return nullptr si aucune piece n'est sur cette case et un pointeur
  * vers une piece sinon.
  */
 Piece*
 Echiquier::getPiece( int x, int y )
 {
+	assert( (x>=1) && (x<=8) && (y>=1) && (y<=8) );
+	return m_cases[ (y-1)*8 + (x-1) ];
 }
 
 /**
@@ -43,6 +48,16 @@ Echiquier::getPiece( int x, int y )
 bool
 Echiquier::placer( Piece* p )
 {
+	assert( (p!=nullptr) &&
+					(p->x()>=1) && (p->x()<=8) &&
+					(p->y()>=1) && (p->y()<=8) );
+	if (getPiece( p->x(), p->y() ) != nullptr)
+		return false;
+	else
+		{
+			m_cases[ (p->y()-1)*8 + (p->x()-1) ] = p;
+			return true;
+		}
 }
 
 /**
@@ -68,7 +83,7 @@ Echiquier::deplacer( Piece* p, int x, int y )
  * @param x un entier entre 1 et 8
  * @param y un entier entre 1 et 8
  *
- * @return 0 si aucune piece n'est sur cette case et le pointeur
+ * @return nullptr si aucune piece n'est sur cette case et le pointeur
  * vers la piece enlevee sinon.
  */
 Piece*
@@ -92,7 +107,7 @@ Echiquier::affiche()
 	{
 	  char c;
 	  Piece* p = getPiece( x, y );
-	  if ( p == 0 )
+	  if ( p == nullptr )
 	    c = ( ( x + y ) % 2 ) == 0 ? '#' : '.';
 	  else
 	    c = p->isWhite() ? 'B' : 'N';

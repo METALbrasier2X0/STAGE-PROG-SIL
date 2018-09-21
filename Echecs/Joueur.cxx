@@ -25,6 +25,13 @@ Joueur::Joueur(bool white)
     cout << "Une Joueur construit" << endl;
 }
 
+void
+Joueur::placerPieces(Echiquier & e)
+{
+    for (int i=0; i<16; i++)
+        e.placer( &(m_pieces[i]) /* m_piece+i */);
+}
+
 bool
 Joueur::isWhite()
 {

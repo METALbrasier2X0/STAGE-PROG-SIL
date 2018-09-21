@@ -10,7 +10,7 @@
 #include "Piece.h"
 
 /**
- * Declaration d'une classe mod�lisant une piece de jeu d'echec.
+ * Declaration d'une classe modelisant une piece de jeu d'echec.
  */
 class Echiquier
 {
@@ -23,8 +23,8 @@ private:
 public:
 
   /**
-   * Constructeur par d�faut.
-   * Initialise � vide l'echiquier.
+   * Constructeur par defaut.
+   * Initialise a vide l'echiquier.
    */
   Echiquier();
 
@@ -34,7 +34,7 @@ public:
    * @param x un entier entre 1 et 8
    * @param y un entier entre 1 et 8
    *
-   * @return 0 si aucune piece n'est sur cette case et un pointeur
+   * @return nullptr si aucune piece n'est sur cette case et un pointeur
    * vers une piece sinon.
    */
   Piece* getPiece( int x, int y );
@@ -69,7 +69,7 @@ public:
    * @param x un entier entre 1 et 8
    * @param y un entier entre 1 et 8
    *
-   * @return 0 si aucune piece n'est sur cette case et le pointeur
+   * @return nullptr si aucune piece n'est sur cette case et le pointeur
    * vers la piece enlevee sinon.
    */
   Piece* enleverPiece( int x, int y );

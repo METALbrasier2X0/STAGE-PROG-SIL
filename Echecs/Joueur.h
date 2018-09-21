@@ -2,6 +2,7 @@
 #define JOUEUR_H
 
 #include "Piece.h"
+#include "Echiquier.h"
 
 class Joueur
 {
@@ -10,6 +11,7 @@ private:
 public:
     Joueur();
     Joueur(bool white);
+    void placerPieces(Echiquier & e);
     bool isWhite();
     void affiche();
 };
