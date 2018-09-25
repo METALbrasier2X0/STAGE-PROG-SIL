@@ -60,8 +60,8 @@ int main( int argc, char** argv )
   jn.affiche();
 
   Echiquier e;
-  //jb.placerPieces(e);
-  //jn.placerPieces(e);
+  jb.placerPieces(e);
+  jn.placerPieces(e);
 
   Roi rb(true);
   Roi rn(false);

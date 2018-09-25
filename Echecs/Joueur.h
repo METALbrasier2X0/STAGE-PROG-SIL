@@ -7,7 +7,7 @@
 class Joueur
 {
 protected:
-    Piece m_pieces[16];
+    Piece *m_pieces[16];
 public:
     Joueur();
     Joueur(bool white);

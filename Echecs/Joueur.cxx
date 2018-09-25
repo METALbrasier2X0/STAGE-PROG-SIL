@@ -10,44 +10,44 @@ Joueur::Joueur()
 
 Joueur::Joueur(bool white)
 {
-    int p=0;
-    int y=(white?1:8);
-    for (int x=1; x<=8; ++x)
-        m_pieces[p++].init( x, y, white );
-
-    y=(white?2:7);
-    for (int x=1; x<=8; ++x)
-    {
-       m_pieces[p].init( x, y, white );
-       p++;
-    }
-
     cout << "Une Joueur construit" << endl;
 }
 
-JoueurBlanc::JoueurBlanc() : Joueur(true)
+JoueurBlanc::JoueurBlanc()
 {
-    cout << "Une JoueurBlanc construit" << endl;
+  int p=0;
+  m_pieces[p++] = new Roi(true);
+  m_pieces[p++] = new Reine(true);
+  m_pieces[p++] = new Tour(true,true);
+  m_pieces[p++] = new Tour(true,false);
+  m_pieces[p++] = new Cavalier(true,true);
+  m_pieces[p++] = new Cavalier(true,false);
+  m_pieces[p++] = new Fou(true,true);
+  m_pieces[p++] = new Fou(true,false);
+
+  cout << "Une JoueurBlanc construit" << endl;
 }
 
 JoueurNoir::JoueurNoir()
 {
-    int p=0;
-    for (int x=1; x<=8; ++x)
-        m_pieces[p++].init( x, 8, false );
-    for (int x=1; x<=8; ++x)
-    {
-       m_pieces[p].init( x, 7, false );
-       p++;
-    }
-    cout << "Une JoueurNoir construit" << endl;
+  int p=0;
+  m_pieces[p++] = new Roi(false);
+  m_pieces[p++] = new Reine(false);
+  m_pieces[p++] = new Tour(false,true);
+  m_pieces[p++] = new Tour(false,false);
+  m_pieces[p++] = new Cavalier(false,true);
+  m_pieces[p++] = new Cavalier(false,false);
+  m_pieces[p++] = new Fou(false,true);
+  m_pieces[p++] = new Fou(false,false);
+
+  cout << "Une JoueurNoir construit" << endl;
 }
 
 void
 Joueur::placerPieces(Echiquier & e)
 {
     for (int i=0; i<16; i++)
-        e.placer( &(m_pieces[i]) /* m_piece+i */);
+        e.placer( m_pieces[i] );
 }
 
 /*
@@ -74,5 +74,5 @@ void
 Joueur::affiche()
 {
     for (int i=0; i<16; i++)
-        m_pieces[i].affiche();
+        m_pieces[i]->affiche();
 }
