@@ -44,12 +44,37 @@ public:
   char getCode() const;
 };
 
-class Reine : public Piece
+class Tour : virtual public Piece
+{
+public:
+  Tour( bool white, bool pos );
+  bool mouvementValide(Echiquier &e, int x, int y);
+  char getCode() const;
+};
+
+class Cavalier : public Piece
+{
+public:
+  Cavalier( bool white, bool pos );
+  bool mouvementValide(Echiquier &e, int x, int y);
+  char getCode() const;
+};
+
+class Fou : virtual public Piece
+{
+public:
+  Fou( bool white, bool pos );
+  bool mouvementValide(Echiquier &e, int x, int y);
+  char getCode() const;
+};
+
+class Reine : public Tour, public Fou
 {
 public:
   Reine( bool white );
   bool mouvementValide(Echiquier &e, int x, int y);
   char getCode() const;
 };
+
 
 #endif // !defined Piece_h
