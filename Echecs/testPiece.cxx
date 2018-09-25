@@ -61,6 +61,21 @@ int main( int argc, char** argv )
   Echiquier e;
   jb.placerPieces(e);
   jn.placerPieces(e);
+
+  Roi rb(true);
+  Roi rn(false);
+  Reine qb(true);
+  Reine qn(false);
+
+  e.enleverPiece(5,1);
+  e.placer(&rb);
+  e.enleverPiece(5,8);
+  e.placer(&rn);
+  e.enleverPiece(4,1);
+  e.placer(&qb);
+  e.enleverPiece(4,8);
+  e.placer(&qn);
+
   e.affiche();
 
   // les objets definis dans cette fonction sont automatiquement d�truits.

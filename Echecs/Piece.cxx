@@ -17,6 +17,19 @@ Piece::Piece()
   cout << "Une Piece creee par defaut" << endl;
 }
 
+Roi::Roi( bool white) : Piece(5, white?1:8, white)
+{
+  cout << "Un Roi cree" << endl;
+}
+
+Reine::Reine( bool white)
+{
+  m_x=4;
+  m_y=white?1:8;
+  m_white=white;
+  cout << "Une Reine creee" << endl;
+}
+
 Piece::~Piece()
 {
   cout << "Une Piece detruite" << endl;
@@ -69,6 +82,19 @@ bool Piece::mouvementValide(Echiquier &e, int x, int y)
   return true;
 }
 
+bool Roi::mouvementValide(Echiquier &e, int x, int y)
+{
+  cout << "mouvementValide de Roi" << endl;
+  return true;
+}
+
+
+bool Reine::mouvementValide(Echiquier &e, int x, int y)
+{
+  cout << "mouvementValide de Reine" << endl;
+  return true;
+}
+
 int
 Piece::x() const
 {
@@ -100,3 +126,20 @@ Piece::affiche() const
        << ( m_white ? "blanche" : "noire" ) << endl;
 }
 
+char
+Piece::getCode() const
+{
+  return m_white ? 'B' : 'N';
+}
+
+char
+Roi::getCode() const
+{
+  return m_white ? 'R' : 'r';
+}
+
+char
+Reine::getCode() const
+{
+  return m_white ? 'Q' : 'q';
+}
