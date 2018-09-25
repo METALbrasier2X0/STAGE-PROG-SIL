@@ -52,6 +52,7 @@ int main( int argc, char** argv )
   Joueur jn(false);
 */
 
+  // Joueur j; // non instanciable
   JoueurBlanc jb;
   JoueurNoir jn;
 

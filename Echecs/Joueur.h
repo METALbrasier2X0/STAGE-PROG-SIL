@@ -12,7 +12,7 @@ public:
     Joueur();
     Joueur(bool white);
     void placerPieces(Echiquier & e);
-    bool isWhite();
+    virtual bool isWhite()=0;
     void affiche();
 };
 
@@ -20,12 +20,14 @@ class JoueurBlanc : public Joueur
 {
 public:
     JoueurBlanc();
+    bool isWhite();
 };
 
 class JoueurNoir : public Joueur
 {
 public:
     JoueurNoir();
+    bool isWhite();
 };
 
 #endif

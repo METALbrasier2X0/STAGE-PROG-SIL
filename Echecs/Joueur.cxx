@@ -50,10 +50,24 @@ Joueur::placerPieces(Echiquier & e)
         e.placer( &(m_pieces[i]) /* m_piece+i */);
 }
 
+/*
 bool
 Joueur::isWhite()
 {
     return m_pieces[0].isWhite();
+}
+*/
+
+bool
+JoueurBlanc::isWhite()
+{
+  return true;
+}
+
+bool
+JoueurNoir::isWhite()
+{
+  return false;
 }
 
 void
