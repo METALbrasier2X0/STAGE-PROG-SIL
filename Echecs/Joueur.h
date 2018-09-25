@@ -10,6 +10,7 @@ protected:
     Piece *m_pieces[16];
 public:
     Joueur();
+    virtual ~Joueur();
     Joueur(bool white);
     void placerPieces(Echiquier & e);
     virtual bool isWhite()=0;

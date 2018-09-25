@@ -17,6 +17,11 @@ Piece::Piece()
   cout << "Une Piece creee par defaut" << endl;
 }
 
+Pion::Pion( bool white, int x ) : Piece(x, white?2:7, white)
+{
+  cout << "Un Pion cree" << endl;
+}
+
 Roi::Roi( bool white) : Piece(5, white?1:8, white)
 {
   cout << "Un Roi cree" << endl;
@@ -126,6 +131,12 @@ bool Fou::mouvementValide(Echiquier &e, int x, int y)
   return true;
 }
 
+bool Pion::mouvementValide(Echiquier &e, int x, int y)
+{
+  cout << "mouvementValide de Pion" << endl;
+  return true;
+}
+
 int
 Piece::x() const
 {
@@ -191,4 +202,10 @@ char
 Fou::getCode() const
 {
   return m_white ? 'F' : 'f';
+}
+
+char
+Pion::getCode() const
+{
+  return m_white ? 'P' : 'p';
 }

@@ -8,6 +8,13 @@ Joueur::Joueur()
     cout << "Une Joueur construit par defaut" << endl;
 }
 
+Joueur::~Joueur()
+{
+    for (int i=0; i<16; i++)
+        delete m_pieces[i];
+    cout << "Une Joueur détruit" << endl;
+}
+
 Joueur::Joueur(bool white)
 {
     cout << "Une Joueur construit" << endl;
@@ -25,6 +32,9 @@ JoueurBlanc::JoueurBlanc()
   m_pieces[p++] = new Fou(true,true);
   m_pieces[p++] = new Fou(true,false);
 
+  for (int x=1; x<=8; ++x)
+    m_pieces[p++] = new Pion(true,x);
+
   cout << "Une JoueurBlanc construit" << endl;
 }
 
@@ -39,6 +49,9 @@ JoueurNoir::JoueurNoir()
   m_pieces[p++] = new Cavalier(false,false);
   m_pieces[p++] = new Fou(false,true);
   m_pieces[p++] = new Fou(false,false);
+
+  for (int x=1; x<=8; ++x)
+    m_pieces[p++] = new Pion(false,x);
 
   cout << "Une JoueurNoir construit" << endl;
 }

@@ -76,5 +76,11 @@ public:
   char getCode() const;
 };
 
-
+class Pion : public Piece
+{
+public:
+  Pion( bool white , int x);
+  bool mouvementValide(Echiquier &e, int x, int y);
+  char getCode() const;
+};
 #endif // !defined Piece_h

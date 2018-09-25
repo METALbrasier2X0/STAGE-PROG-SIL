@@ -63,50 +63,6 @@ int main( int argc, char** argv )
   jb.placerPieces(e);
   jn.placerPieces(e);
 
-  Roi rb(true);
-  Roi rn(false);
-  Reine qb(true);
-  Reine qn(false);
-
-  Tour tbb(true,true);
-  Tour tbn(true,false);
-  Tour tnb(false,true);
-  Tour tnn(false,false);
-
-  Cavalier cbb(true,true);
-  Cavalier cbn(true,false);
-  Cavalier cnb(false,true);
-  Cavalier cnn(false,false);
-
-  Fou fbb(true,true);
-  Fou fbn(true,false);
-  Fou fnb(false,true);
-  Fou fnn(false,false);
-
-  e.enleverPiece(5,1);
-  e.placer(&rb);
-  e.enleverPiece(5,8);
-  e.placer(&rn);
-  e.enleverPiece(4,1);
-  e.placer(&qb);
-  e.enleverPiece(4,8);
-  e.placer(&qn);
-
-  e.placer(&tbb);
-  e.placer(&tbn);
-  e.placer(&tnb);
-  e.placer(&tnn);
-
-  e.placer(&cbb);
-  e.placer(&cbn);
-  e.placer(&cnb);
-  e.placer(&cnn);
-
-  e.placer(&fbb);
-  e.placer(&fbn);
-  e.placer(&fnb);
-  e.placer(&fnn);
-
   e.affiche();
 
   // les objets definis dans cette fonction sont automatiquement d�truits.
