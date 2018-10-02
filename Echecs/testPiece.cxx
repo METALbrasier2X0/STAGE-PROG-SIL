@@ -12,6 +12,10 @@
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
 
+bool compare (Piece p, Piece q)
+{
+  return (p.x() == q.x()) && (p.y() == q.y());
+}
 
 /**
  * Programme principal
@@ -31,12 +35,21 @@ int main( int argc, char** argv )
   p1.affiche();
   p2.affiche();
 
+  if (compare(p1,p2))
+    cout << "meme position" << endl;
+  else
+    cout << "position differente" << endl;
+
+  p1 = p2;
+
+  /*
   Joueur jb(true);
   Joueur jn(false);
 
   jb.affiche();
   jn.affiche();
+*/
 
-  // les objets definis dans cette fonction sont automatiquement d�truits.
-  // Ex : p1
+    // les objets definis dans cette fonction sont automatiquement d�truits.
+    // Ex : p1
 }

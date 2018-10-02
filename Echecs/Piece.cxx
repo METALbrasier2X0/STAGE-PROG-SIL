@@ -29,6 +29,24 @@ Piece::Piece( int x, int y, bool white )
   cout << "Une Piece construite specialisee" << endl;
 }
 
+Piece::Piece( const Piece & autre)
+{
+  m_x = autre.m_x;
+  m_y = autre.m_y;
+  m_white = autre.m_white;
+  cout << "Une Piece construite par copie" << endl;
+}
+
+Piece &
+Piece::operator=( const Piece & autre )
+{
+  m_x = autre.m_x;
+  m_y = autre.m_y;
+  m_white = autre.m_white;
+  cout << "Une Piece affectee" << endl;
+  return *this;
+}
+
 void
 Piece::init( int x, int y, bool white )
 {
