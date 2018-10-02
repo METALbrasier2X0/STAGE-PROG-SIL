@@ -15,6 +15,13 @@ Joueur::Joueur( bool white)
 }
 
 void
+Joueur::placerPieces( Echiquier & e )
+{
+    for (int i = 0; i < 16; i++)
+        e.placer( m_pieces+i /*&(m_pieces[i])*/ );
+}
+
+void
 Joueur::affiche()
 {
     for (int i=0; i<16; i++)

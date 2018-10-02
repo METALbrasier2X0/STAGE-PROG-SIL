@@ -44,16 +44,14 @@ int main( int argc, char** argv )
   p1 = p2;
 
   Echiquier e;
-  e.affiche();
-
-  /*
   Joueur jb(true);
   Joueur jn(false);
-
   jb.affiche();
   jn.affiche();
-*/
+  jb.placerPieces(e);
+  jn.placerPieces(e);
+  e.affiche();
 
-    // les objets definis dans cette fonction sont automatiquement d�truits.
-    // Ex : p1
+  // les objets definis dans cette fonction sont automatiquement d�truits.
+  // Ex : p1
 }

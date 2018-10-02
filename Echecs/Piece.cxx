@@ -47,6 +47,12 @@ Piece::operator=( const Piece & autre )
   return *this;
 }
 
+bool Piece::mouvementValide(Echiquier &e, int x, int y) const
+{
+  cout << "mouvementValide de Piece" << endl;
+  return false;
+}
+
 void
 Piece::init( int x, int y, bool white )
 {

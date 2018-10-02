@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <assert.h>
 // A besoin de la declaration de la classe
 #include "Echiquier.h"
 
@@ -32,6 +33,7 @@ Echiquier::Echiquier()
 Piece*
 Echiquier::getPiece( int x, int y )
 {
+	assert(x>=1 && x<=8 && y>=1 && y<=8);
 	return m_cases[(x - 1) + 8 * (y - 1)];
 }
 
@@ -46,6 +48,15 @@ Echiquier::getPiece( int x, int y )
 bool
 Echiquier::placer( Piece* p )
 {
+	if ( nullptr == p )
+		return false;
+	assert( p->x() >= 1 && p->x() <= 8 &&
+				  p->y() >= 1 && p->y() <= 8 );
+	int pos = (p->x() - 1) + 8 * (p->y() - 1);
+	if (nullptr!=m_cases[pos])
+		return false;
+	m_cases[pos] = p;
+	return true;
 }
 
 /**

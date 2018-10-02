@@ -8,6 +8,7 @@
 #define Joueur_h
 
 #include "Piece.h"
+#include "Echiquier.h"
 
 /**
  * Declaration d'une classe modelisant un joueur de jeu d'echec.
@@ -19,6 +20,7 @@ private:
 
 public:
   Joueur( bool white );
+  void placerPieces( Echiquier & e );
   void affiche();
 };
 
