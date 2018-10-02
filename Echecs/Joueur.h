@@ -15,13 +15,26 @@
  */
 class Joueur
 {
-private:
+protected:
   Piece m_pieces[16];
 
 public:
-  Joueur( bool white );
+  Joueur();
+  Joueur(bool white);
   void placerPieces( Echiquier & e );
   void affiche();
+};
+
+class JoueurBlanc : public Joueur
+{
+  public:
+    JoueurBlanc();
+};
+
+class JoueurNoir : public Joueur
+{
+  public:
+    JoueurNoir();
 };
 
 #endif // !defined Joueur_h

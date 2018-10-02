@@ -1,5 +1,9 @@
 #include "Joueur.h"
 
+Joueur::Joueur()
+{
+}
+
 Joueur::Joueur( bool white)
 {
     int p=0;
@@ -12,6 +16,22 @@ Joueur::Joueur( bool white)
     y=(white)?2:7;
     for (int x=1; x<=8; ++x)
         m_pieces[p++].init( x, y, white );
+}
+
+JoueurBlanc::JoueurBlanc() : Joueur(true)
+{
+}
+
+JoueurNoir::JoueurNoir()
+{
+    int p=0;
+    for (int x=1; x<=8; ++x)
+    {
+        m_pieces[p].init( x, 8, false );
+        p=p+1; // p+=1 // p++
+    }
+    for (int x=1; x<=8; ++x)
+        m_pieces[p++].init( x, 7, false );
 }
 
 void

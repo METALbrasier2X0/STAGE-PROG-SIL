@@ -25,8 +25,8 @@ public:
   ~Piece();
   Piece( int x, int y, bool white );
   Piece( const Piece &autre );
-  Piece &operator=(const Piece &autre);
-  bool mouvementValide(Echiquier &e, int x, int y) const;
+  Piece &operator=(const Piece &autre) = delete;
+  virtual bool mouvementValide(Echiquier &e, int x, int y) const;
   void init(int x, int y, bool white);
   void move( int x, int y );
   int x() const;
@@ -34,6 +34,13 @@ public:
   bool isWhite() const;
   bool isBlack() const;
   void affiche() const;
+};
+
+class Roi : public Piece
+{
+    public:
+      Roi( bool white );
+      bool mouvementValide(Echiquier &e, int x, int y) const;
 };
 
 #endif // !defined Piece_h

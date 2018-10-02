@@ -41,16 +41,24 @@ int main( int argc, char** argv )
   else
     cout << "position differente" << endl;
 
-  p1 = p2;
+  // p1 = p2; // =delete
 
   Echiquier e;
+  /*
   Joueur jb(true);
   Joueur jn(false);
+  */
+  JoueurBlanc jb;
+  JoueurNoir jn;
   jb.affiche();
   jn.affiche();
   jb.placerPieces(e);
   jn.placerPieces(e);
   e.affiche();
+
+  Roi rb(true);
+  Piece *ptr = &rb;
+  ptr->mouvementValide(e, 1, 1);
 
   // les objets definis dans cette fonction sont automatiquement d�truits.
   // Ex : p1

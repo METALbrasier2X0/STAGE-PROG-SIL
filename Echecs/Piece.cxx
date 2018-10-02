@@ -37,6 +37,12 @@ Piece::Piece( const Piece & autre)
   cout << "Une Piece construite par copie" << endl;
 }
 
+Roi::Roi( bool white ) : Piece(5, white?1:8, white)
+{
+  cout << "Un Roi" << endl;
+}
+
+/* =delete
 Piece &
 Piece::operator=( const Piece & autre )
 {
@@ -46,10 +52,17 @@ Piece::operator=( const Piece & autre )
   cout << "Une Piece affectee" << endl;
   return *this;
 }
+*/
 
 bool Piece::mouvementValide(Echiquier &e, int x, int y) const
 {
   cout << "mouvementValide de Piece" << endl;
+  return false;
+}
+
+bool Roi::mouvementValide(Echiquier &e, int x, int y) const
+{
+  cout << "mouvementValide de Roi" << endl;
   return false;
 }
 
