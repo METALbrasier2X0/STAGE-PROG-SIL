@@ -63,31 +63,31 @@ Piece::move( int x, int y )
 }
 
 int
-Piece::x()
+Piece::x() const
 {
   return m_x;
 }
 
 int
-Piece::y()
+Piece::y() const
 {
   return m_y;
 }
 
 bool
-Piece::isWhite()
+Piece::isWhite() const
 {
   return m_white;
 }
 
 bool
-Piece::isBlack()
+Piece::isBlack() const
 {
   return !m_white;
 }
 
 void
-Piece::affiche()
+Piece::affiche() const
 {
     cout << "Piece: x=" << m_x << " y=" << m_y << " "
          << ( m_white ? "blanche" : "noire" ) << endl;
