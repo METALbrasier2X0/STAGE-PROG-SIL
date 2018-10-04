@@ -20,8 +20,8 @@ int main(int argc, const char* argv[]) {
   nbelem = atoi(argv[1]);
 
   /* Allocation du tableau */
-  TabGeneric<int> tableau(nbelem);
-  int max;
+  TabGeneric<char> tableau(nbelem);
+  char max;
 
   /* On remplit le tableau */
   tableau.Remplir();

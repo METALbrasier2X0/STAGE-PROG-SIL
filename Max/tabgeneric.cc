@@ -2,6 +2,7 @@
 #include <time.h>
 #include <iostream>
 #include "tabgeneric.h"
+//#include "../Echecs/Piece.h"
 
 using namespace std;
 
@@ -34,7 +35,7 @@ TabGeneric<T>::Remplir(){
 
   /* On remplit le tableau aleatoirement */
   for (i=0; i<taille; i++)
-    tableau[i] = (T) (rand()%MAX_TAB - MAX_TAB / 2);
+    tableau[i] = (T)(rand() % 24 + 'a');
 
 }
 
@@ -71,3 +72,4 @@ TabGeneric<T>::Print(){
 template class TabGeneric<int>;
 template class TabGeneric<float>;
 template class TabGeneric<char>;
+//template class TabGeneric<Piece>;
