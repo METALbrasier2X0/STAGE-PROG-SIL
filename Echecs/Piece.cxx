@@ -42,6 +42,11 @@ Roi::Roi( bool white ) : Piece(5, white?1:8, white)
   cout << "Un Roi" << endl;
 }
 
+Reine::Reine( bool white ) : Piece(4, white?1:8, white)
+{
+  cout << "Une Reine" << endl;
+}
+
 /* =delete
 Piece &
 Piece::operator=( const Piece & autre )
@@ -63,6 +68,12 @@ bool Piece::mouvementValide(Echiquier &e, int x, int y) const
 bool Roi::mouvementValide(Echiquier &e, int x, int y) const
 {
   cout << "mouvementValide de Roi" << endl;
+  return false;
+}
+
+bool Reine::mouvementValide(Echiquier &e, int x, int y) const
+{
+  cout << "mouvementValide de Reine" << endl;
   return false;
 }
 
@@ -110,4 +121,22 @@ Piece::affiche() const
 {
     cout << "Piece: x=" << m_x << " y=" << m_y << " "
          << ( m_white ? "blanche" : "noire" ) << endl;
+}
+
+char
+Piece::getChar() const
+{
+  return m_white ? 'B' : 'N';
+}
+
+char
+Roi::getChar() const
+{
+  return m_white ? 'r' : 'R';
+}
+
+char
+Reine::getChar() const
+{
+  return m_white ? 'q' : 'Q';
 }

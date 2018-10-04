@@ -15,7 +15,7 @@ class Echiquier;
  */
 class Piece
 {
-private:
+protected:
   int m_x;
   int m_y;
   bool m_white;
@@ -34,6 +34,7 @@ public:
   bool isWhite() const;
   bool isBlack() const;
   void affiche() const;
+  virtual char getChar() const;
 };
 
 class Roi : public Piece
@@ -41,6 +42,15 @@ class Roi : public Piece
     public:
       Roi( bool white );
       bool mouvementValide(Echiquier &e, int x, int y) const;
+      char getChar() const;
+};
+
+class Reine : public Piece
+{
+    public:
+      Reine( bool white );
+      bool mouvementValide(Echiquier &e, int x, int y) const;
+      char getChar() const;
 };
 
 #endif // !defined Piece_h

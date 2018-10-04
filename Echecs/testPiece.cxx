@@ -54,11 +54,25 @@ int main( int argc, char** argv )
   jn.affiche();
   jb.placerPieces(e);
   jn.placerPieces(e);
-  e.affiche();
 
   Roi rb(true);
   Piece *ptr = &rb;
   ptr->mouvementValide(e, 1, 1);
+
+  Roi rn(false);
+  Reine qb(true);
+  Reine qn(false);
+
+  e.enleverPiece(5, 1);
+  e.placer(&rb);
+  e.enleverPiece(5, 8);
+  e.placer(&rn);
+  e.enleverPiece(4, 1);
+  e.placer(&qb);
+  e.enleverPiece(4, 8);
+  e.placer(&qn);
+
+  e.affiche();
 
   // les objets definis dans cette fonction sont automatiquement d�truits.
   // Ex : p1
