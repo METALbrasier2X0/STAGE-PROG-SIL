@@ -62,6 +62,9 @@ int main( int argc, char** argv )
 
   Roi rn(false);
   Reine qb(true);
+  ptr = &qb;
+  ptr->mouvementValide(e, 1, 1);
+
   Reine qn(false);
 
   e.enleverPiece(5, 1);

@@ -45,7 +45,23 @@ class Roi : public Piece
       char getChar() const;
 };
 
-class Reine : public Piece
+class Tour : virtual public Piece
+{
+    public:
+      Tour( bool white, bool gauche );
+      bool mouvementValide(Echiquier &e, int x, int y) const;
+      char getChar() const;
+};
+
+class Fou : virtual public Piece
+{
+    public:
+      Fou( bool white, bool gauche );
+      bool mouvementValide(Echiquier &e, int x, int y) const;
+      char getChar() const;
+};
+
+class Reine : public Tour, public Fou
 {
     public:
       Reine( bool white );
