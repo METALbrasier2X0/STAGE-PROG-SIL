@@ -22,7 +22,7 @@ private:
 
 public:
   Piece();
-  ~Piece();
+  virtual ~Piece();
   Piece( int x, int y, bool white );
   Piece( const Piece &autre );
   Piece &operator=(const Piece &autre) = delete;
