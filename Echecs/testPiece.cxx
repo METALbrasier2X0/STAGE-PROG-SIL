@@ -44,10 +44,9 @@ int main( int argc, char** argv )
   // p1 = p2; // =delete
 
   Echiquier e;
-  /*
-  Joueur jb(true);
-  Joueur jn(false);
-  */
+
+  // Joueur j(true); // virtual =0
+
   JoueurBlanc jb;
   JoueurNoir jn;
   jb.affiche();
@@ -58,6 +57,8 @@ int main( int argc, char** argv )
   Roi rb(true);
   Piece *ptr = &rb;
   ptr->mouvementValide(e, 1, 1);
+  Roi *rptr = dynamic_cast<Roi *>(ptr);
+  assert(rptr != nullptr);
 
   Roi rn(false);
   Reine qb(true);

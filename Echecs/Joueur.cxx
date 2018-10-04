@@ -47,3 +47,15 @@ Joueur::affiche()
     for (int i=0; i<16; i++)
         m_pieces[i].affiche();
 }
+
+bool
+JoueurBlanc::isWhite() const
+{
+    return true;
+}
+
+bool
+JoueurNoir::isWhite() const
+{
+    return false;
+}

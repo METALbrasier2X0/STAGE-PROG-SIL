@@ -23,18 +23,21 @@ public:
   Joueur(bool white);
   void placerPieces( Echiquier & e );
   void affiche();
+  virtual bool isWhite() const =0;
 };
 
 class JoueurBlanc : public Joueur
 {
   public:
     JoueurBlanc();
+    bool isWhite() const;
 };
 
 class JoueurNoir : public Joueur
 {
   public:
     JoueurNoir();
+    bool isWhite() const;
 };
 
 #endif // !defined Joueur_h
