@@ -25,8 +25,8 @@ int RechercheMax(int * tableau, int nbelem){
   /* On initialise max a la valeur du premier element du tableau */
   max = tableau[0];
 
-  /* On parcours le tableau à la recherche d'un plus grand élément que max */
-  for(i = 1 ; i=nbelem; i++) {
+  /* On parcours le tableau ï¿½ la recherche d'un plus grand ï¿½lï¿½ment que max */
+  for(i = 1 ; i<nbelem; i++) {
     if (max < tableau[i]) max = tableau[i];
   }
 
@@ -64,7 +64,7 @@ int main(int argc, const char* argv[]) {
       cout << endl;
     }
 
-  /* On affiche le résultat */
+  /* On affiche le rï¿½sultat */
   cout << "Max : " << max << endl;
 
   return 0;
