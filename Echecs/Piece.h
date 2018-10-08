@@ -45,6 +45,14 @@ class Roi : public Piece
       char getChar() const;
 };
 
+class Cavalier : public Piece
+{
+    public:
+      Cavalier( bool white, bool gauche );
+      bool mouvementValide(Echiquier &e, int x, int y) const;
+      char getChar() const;
+};
+
 class Tour : virtual public Piece
 {
     public:
@@ -68,5 +76,14 @@ class Reine : public Tour, public Fou
       bool mouvementValide(Echiquier &e, int x, int y) const;
       char getChar() const;
 };
+
+class Pion : public Piece
+{
+    public:
+      Pion( bool white, int x );
+      bool mouvementValide(Echiquier &e, int x, int y) const;
+      char getChar() const;
+};
+
 
 #endif // !defined Piece_h

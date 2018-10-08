@@ -42,6 +42,12 @@ Roi::Roi( bool white ) : Piece(5, white?1:8, white)
   cout << "Un Roi" << endl;
 }
 
+Cavalier::Cavalier( bool white, bool gauche ) :
+  Piece(gauche?2:7, white?1:8, white)
+{
+  cout << "Un Cavalier" << endl;
+}
+
 Tour::Tour( bool white, bool gauche ) :
   Piece(gauche?1:8, white?1:8, white)
 {
@@ -58,6 +64,11 @@ Reine::Reine( bool white ) : Piece(4, white?1:8, white),
   Tour(white, true), Fou(white, true)
 {
   cout << "Une Reine" << endl;
+}
+
+Pion::Pion( bool white, int x ) : Piece(x, white?2:7, white)
+{
+  cout << "Un Pion" << endl;
 }
 
 /* =delete
@@ -84,6 +95,12 @@ bool Roi::mouvementValide(Echiquier &e, int x, int y) const
   return false;
 }
 
+bool Cavalier::mouvementValide(Echiquier &e, int x, int y) const
+{
+  cout << "mouvementValide de Cavalier" << endl;
+  return false;
+}
+
 bool Tour::mouvementValide(Echiquier &e, int x, int y) const
 {
   cout << "mouvementValide de Tour" << endl;
@@ -101,6 +118,12 @@ bool Reine::mouvementValide(Echiquier &e, int x, int y) const
   cout << "mouvementValide de Reine" << endl;
   return Fou::mouvementValide(e, x, y) ||
          Tour::mouvementValide(e, x, y);
+}
+
+bool Pion::mouvementValide(Echiquier &e, int x, int y) const
+{
+  cout << "mouvementValide de Pion" << endl;
+  return false;
 }
 
 void
@@ -162,6 +185,12 @@ Roi::getChar() const
 }
 
 char
+Cavalier::getChar() const
+{
+  return m_white ? 'c' : 'C';
+}
+
+char
 Tour::getChar() const
 {
   return m_white ? 't' : 'T';
@@ -177,4 +206,10 @@ char
 Reine::getChar() const
 {
   return m_white ? 'q' : 'Q';
+}
+
+char
+Pion::getChar() const
+{
+  return m_white ? 'p' : 'P';
 }

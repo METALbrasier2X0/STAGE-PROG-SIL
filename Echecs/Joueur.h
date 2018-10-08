@@ -7,8 +7,11 @@
 #if !defined Joueur_h
 #define Joueur_h
 
+#include <vector>
 #include "Piece.h"
 #include "Echiquier.h"
+
+using namespace std;
 
 /**
  * Declaration d'une classe modelisant un joueur de jeu d'echec.
@@ -16,12 +19,15 @@
 class Joueur
 {
 protected:
-  Piece m_pieces[16];
+  vector<Piece*> m_pieces;
 
 public:
   Joueur();
-  Joueur(bool white);
-  void placerPieces( Echiquier & e );
+  //Joueur(bool white);
+  ~Joueur();
+  Joueur(const Joueur &autre) = delete;
+  Joueur &operator=(const Joueur &autre) = delete;
+  void placerPieces(Echiquier &e);
   void affiche();
   virtual bool isWhite() const =0;
 };

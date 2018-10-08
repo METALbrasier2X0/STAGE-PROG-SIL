@@ -8,7 +8,7 @@ testPiece: $(OBJ) testPiece.o
 	g++ $(OBJ) testPiece.o -o testPiece
 
 %.o: %.cxx
-	g++ -c -g $<
+	g++ -std=c++11 -c -g $<
 
 clean:
 	@rm -f $(OBJ) testPiece.o testPiece *~
