@@ -29,6 +29,7 @@ Piece::Piece( int x, int y, bool white )
   cout << "Une Piece construite specialisee" << endl;
 }
 
+/*
 Piece::Piece( const Piece & autre)
 {
   m_x = autre.m_x;
@@ -36,6 +37,7 @@ Piece::Piece( const Piece & autre)
   m_white = autre.m_white;
   cout << "Une Piece construite par copie" << endl;
 }
+*/
 
 Roi::Roi( bool white ) : Piece(5, white?1:8, white)
 {
@@ -172,11 +174,13 @@ Piece::affiche() const
          << ( m_white ? "blanche" : "noire" ) << endl;
 }
 
+/*
 char
 Piece::getChar() const
 {
   return m_white ? 'B' : 'N';
 }
+*/
 
 char
 Roi::getChar() const

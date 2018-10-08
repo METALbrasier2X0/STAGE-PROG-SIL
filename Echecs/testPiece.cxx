@@ -13,7 +13,7 @@
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
 
-bool compare (Piece p, Piece q)
+bool compare (Piece &p, Piece &q)
 {
   return (p.x() == q.x()) && (p.y() == q.y());
 }
@@ -23,6 +23,7 @@ bool compare (Piece p, Piece q)
  */
 int main( int argc, char** argv )
 {
+/*
   // instancie un objet p1 de type Piece
   Piece p1;
   // p1 est une piece blanche de coordonnees (3,3)
@@ -42,6 +43,7 @@ int main( int argc, char** argv )
     cout << "position differente" << endl;
 
   // p1 = p2; // =delete
+*/
 
   Echiquier e;
 

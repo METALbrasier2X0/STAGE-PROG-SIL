@@ -24,7 +24,7 @@ public:
   Piece();
   virtual ~Piece();
   Piece( int x, int y, bool white );
-  Piece( const Piece &autre );
+  Piece( const Piece &autre ) =delete;
   Piece &operator=(const Piece &autre) = delete;
   virtual bool mouvementValide(Echiquier &e, int x, int y) const;
   void init(int x, int y, bool white);
@@ -34,7 +34,7 @@ public:
   bool isWhite() const;
   bool isBlack() const;
   void affiche() const;
-  virtual char getChar() const;
+  virtual char getChar() const =0;
 };
 
 class Roi : public Piece
